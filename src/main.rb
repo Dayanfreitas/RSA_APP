@@ -1,35 +1,26 @@
 require 'rsa'
 require_relative 'utils/helper'
 
-def process_option(option:)
-  if option == "1"
-    RSA.generated
-  end
+require 'base64'
 
-  if option == "2"
-    puts "Digite sua menssage:"
-    menssage = gets
+path = ARGV[0]
+puts "PATH [#{path}]"    
 
-    RSA.generated unless File.exists?("private.txt") && File.exists?("public.txt")
-
-    encode = RSA.encode(menssage.chomp)
-    decode = RSA.decode(encode)
-
-    p "menssage_encode => #{encode}"
-    p "decoded => #{decode}"
-  end
-
-  if option == "3"
-    exit
-  end
+def encode(string)
+    Base64.encode64(string)
 end
 
-def start
-  loop do
-    menu
-    option = gets.chomp
-    process_option(option: option)
-  end
+def decode(string)
+    Base64.decode64(string)
 end
 
-start
+def read_file(path:)
+    file = File.open(path) 
+    file.read
+end
+
+string_text = read_file(path: ARGV[0])
+
+
+puts "TEXT FILE"
+s = "SGVsbG8gV29ybGQgISEKSSBhbSB0ZXh0ICE="

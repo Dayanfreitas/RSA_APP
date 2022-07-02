@@ -7,6 +7,6 @@ stop:
 	docker-compose stop
 
 bash:
-	docker exec -it novo_app_1  /bin/bash
+	docker exec -it rsa_app_app_1  /bin/bash
 
 
