@@ -1,7 +1,7 @@
 require 'rsa'
 require 'base64'
 require_relative 'utils/helper'
-require_relative 'files'
+require_relative 'utils/files'
 
 params = read_args(args: ARGV)
 
