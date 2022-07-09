@@ -9,6 +9,11 @@ $ make up
 $ make bash
 ```
 
+### intall gem 
+
+```bash
+$ bundle
+```
 
 ### Run app encripta
 
