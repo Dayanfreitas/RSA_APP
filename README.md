@@ -9,7 +9,7 @@ $ make up
 $ make bash
 ```
 
-### intall gem 
+### install gem 
 
 ```bash
 $ bundle
