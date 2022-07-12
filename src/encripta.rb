@@ -1,19 +1,15 @@
 require 'rsa'
-require 'base64'
-require_relative 'utils/helper'
-require_relative 'utils/files'
+require_relative './utils/helper'
+require_relative './utils/file_key_public'
 
 params = read_args(args: ARGV)
-
-file_keys = Files.new(params.path_keys)
+file_public = FileKeyPublic.new(params.path_keys)
 file_input = Files.new(params.path_name_file_input)
 file_output = Files.new(params.path_name_file_output)
 
-puts file_keys.read
+file_public_read = file_public.read
+RSA::OPEN::Public.n=file_public_read[:key_n]
+RSA::OPEN::Public.e=file_public_read[:key_e]
 
-string_encode_64 = Base64.encode64(file_input.read)
-puts string_encode_64
-
-encode = RSA.encode(string_encode_64)
-puts encode
-file_output.write(encode)
+encrypted_arr = RSA.encode(file_input.read)
+file_output.write(encrypted_arr)
