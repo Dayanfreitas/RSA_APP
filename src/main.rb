@@ -1,2 +1,0 @@
-require 'rsa'
-RSA.generated
