@@ -10,8 +10,8 @@ class Files
       file.read
   end
 
-  def write(text)
-      file = File.open(@path, "w")
+  def write(text, mode="w")
+      file = File.open(@path, mode)
       file.puts text
       file.close
   end  
