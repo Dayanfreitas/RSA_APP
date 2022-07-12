@@ -2,6 +2,7 @@ require 'rsa'
 require_relative './utils/helper'
 require_relative './utils/file_key_public'
 
+# ruby src/encripta.rb keys/public.txt assets/input.txt assets/output.txt
 params = read_args(args: ARGV)
 file_public = FileKeyPublic.new(params.path_keys)
 file_input = Files.new(params.path_name_file_input)
